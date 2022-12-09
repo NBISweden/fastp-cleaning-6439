@@ -1,7 +1,7 @@
 fastp-cleaning
 ==============
 
-.. _fastp-cleaning: https://github.com/nylander/fastp-cleaning-6439
+.. _fastp-cleaning-6439: https://github.com/nylander/fastp-cleaning-6439
 
 This is an automatic report from an execution of `fastp-cleaning-6439`_, created by
 Snakemake. Each subsection in the Results section contains brief descriptions
