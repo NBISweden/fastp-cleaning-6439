@@ -7,5 +7,7 @@ rule bwa_index:
         "logs/bwa_index/ref.log",
     params:
         algorithm="bwtsw",
+    conda:
+        "../envs/fastp-cleaning.yaml"
     wrapper:
         "v1.20.0/bio/bwa/index"
