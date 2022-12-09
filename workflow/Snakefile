@@ -40,8 +40,8 @@ if config["run_bwa_mem"]:
     include: "rules/bwa_mem.smk"
     include: "rules/samtools_index.smk"
 
-if config["run_parse"]:
-    include: "rules/parse.smk"
+if config["run_parse_bam"]:
+    include: "rules/parse_bam.smk"
 
 localrules: all
 
