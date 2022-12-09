@@ -1,0 +1,16 @@
+*.swp
+.snakemake/*
+DEBUG
+NOTES
+Old.tgz
+Old.zip
+Old/*
+TODO
+__pycache__
+input/*.gz
+input/list.tab
+input/ref.fas*
+output/*
+tmp.tgz
+tmp.zip
+tmp/*

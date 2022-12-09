@@ -1,0 +1,57 @@
+# Run configuration
+inputdir: "input"
+input_fn_pattern: "{sample}_{readpair}_001.fastq.gz"
+input_fqgz_pattern: "{sample}_{readpair}.fq.gz"
+output_fas_pattern: "{sample}_{readpair}.fas"
+input_tab_pattern: "list.tab"
+outputdir: "output"
+fastqdir: "output/fastq"
+fastadir: "output/fasta"
+bamdir: "output/bam"
+countsdir: "output/counts"
+logdir: "output/logs"
+report: "output/workflow-report-"
+
+# Workflow steps
+run_fastp: True
+fastp_dedup: True
+fastp_merge: True
+fastq_to_fasta: True
+bwa_mem: True
+parse: True
+
+# Extra options to tools
+# fastp
+fastp:
+    extra: "--detect_adapter_for_pe --correction --cut_right "
+    n: 4
+    dup_calc_accuracy: 3
+    length_required: 116
+
+# seqtk
+seqtk:
+    extra: ""
+    n: 1
+
+# seqkit
+seqkit:
+    extra: "-t dna"
+    n: 4
+
+# bwa
+bwa:
+    extra: ""
+    n: 4
+
+# samtools
+samtools:
+    extra: ""
+    n: 4
+
+# parse.py. m is mismatches, g is gene length
+parse:
+    extra: ""
+    n: 4
+    m: 2
+    g: 9
+

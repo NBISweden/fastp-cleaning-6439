@@ -1,0 +1,11 @@
+rule bwa_index:
+    input:
+        INPUTDIR/"ref.fas",
+    output:
+        idx=multiext("input/ref.fas", ".amb", ".ann", ".bwt", ".pac", ".sa"),
+    log:
+        "logs/bwa_index/ref.log",
+    params:
+        algorithm="bwtsw",
+    wrapper:
+        "v1.20.0/bio/bwa/index"
