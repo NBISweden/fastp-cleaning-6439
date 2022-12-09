@@ -10,7 +10,7 @@ tsv_files = expand(str(COUNTSDIR/"{sample}_{readpair}.tsv"),
     readpair = readpairs)
 all_outputs.extend(tsv_files)
 
-parse_bam_config = config["parse"]
+parse_bam_config = config["parse_bam"]
 extra = parse_bam_config["extra"]
 g = parse_bam_config["g"]
 m = parse_bam_config["m"]
@@ -33,7 +33,7 @@ rule parse_bam:
         extra = extra
     shell:
         """
-        python3 workflow/scripts/parse.py \
+        python3 workflow/scripts/parse_bam.py \
             -b {input.bam} \
             -f {input.fas} \
             -g {g} \

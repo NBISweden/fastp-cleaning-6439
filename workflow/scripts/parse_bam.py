@@ -4,7 +4,7 @@
 #
 # Copyright © 2022 nylander <johan.nylander@nbis.se>
 # Distributed under terms of the MIT license.
-# Last modified: tor dec 08, 2022  06:24
+# Last modified: fre dec 09, 2022  05:21
 
 """
 Description:
@@ -16,13 +16,13 @@ Description:
 
 Usage:
 
-    parse.py -b BAMFILE -f FASTAFILE [-g [GENELENGTH]] [-m [MISMATCHES]]
+    parse_bam.py -b BAMFILE -f FASTAFILE [-g [GENELENGTH]] [-m [MISMATCHES]]
              [-t [THREADS]] [-o [OUTPUT]] [-v] [-V] [-h]
 
 Examples:
 
-    ./parse.py -b my.sorted.bam -f ref.fas -o counts.tsv
-    ./parse.py -b my.sorted.bam -f ref.fas -g 9 -m 2 -t 4 -v -o counts.tsv
+    ./parse_bam.py -b my.sorted.bam -f ref.fas -o counts.tsv
+    ./parse_bam.py -b my.sorted.bam -f ref.fas -g 9 -m 2 -t 4 -v -o counts.tsv
 
 Options:
 
@@ -282,7 +282,7 @@ def doParse(args):
 
 def main():
     parser = argparse.ArgumentParser(
-            prog = 'parse',
+            prog = 'parse_bam',
             description = 'Count references from fasta file in sam/bam file',
             formatter_class = argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('-b', '--bam',
