@@ -1,6 +1,6 @@
 # fastp-cleaning-6439
 
-- Last modified: fre dec 09, 2022  03:47
+- Last modified: fre dec 09, 2022  06:27
 - Sign: nylander
 
 ## Description
@@ -57,8 +57,11 @@ files as queries, and the sequences in `list.tab` as the "genome".
 ### Parsing the search results
 
 Searching for reference sequences in the fastq files are done according to a
-specific schema. Please see the [README file](workflow/scripts/README.md) in
-the workflow/scripts directory for details.
+specific schema using a script,
+[`parse_bam.py`](workflow/scripts/parse_bam.py), which parses the bam files.
+Please see the [README file](workflow/scripts/README.md) in the
+workflow/scripts directory for details. Workflow defaults for the script
+`parse_bam.py` are specified in the file [config.yaml](config/config.yaml).
 
 ---
 

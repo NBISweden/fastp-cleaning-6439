@@ -6,7 +6,7 @@ rule bwa_index:
     output:
         idx=multiext("input/ref.fas", ".amb", ".ann", ".bwt", ".pac", ".sa")
     log:
-        "logs/bwa_index/ref.log"
+        LOGDIR/"bwa_index/ref.log"
     params:
         algorithm="bwtsw"
     conda:

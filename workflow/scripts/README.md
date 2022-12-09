@@ -1,16 +1,16 @@
 # Scripts folder
 
-- Last modified: fre dec 09, 2022  03:21
+- Last modified: fre dec 09, 2022  06:24
 - Sign: nylander
 
 ## Description
 
 Scripts necessary for the counts procedure.
 
-1. `parse.py`: for parsing the result (bam file) from search. Requires python
+1. `parse_bam.py`: for parsing the result (bam file) from search. Requires python
    v.3, and python modules pysam and pyfaidx.
 
-## Details for the `parse.py` script
+## Details for the `parse_bam.py` script
 
 ### Description
 
@@ -21,18 +21,18 @@ Output is a count of matches for a specific ref seq.
 
 ### Usage
 
-    $ parse.py -b BAMFILE -f FASTAFILE [-g [GENELENGTH]] [-m [MISMATCHES]]
+    $ parse_bam.py -b BAMFILE -f FASTAFILE [-g [GENELENGTH]] [-m [MISMATCHES]]
         [-t [THREADS]] [-o [OUTPUT]] [-v] [-V] [-h]
 
 ### Examples
 
 Allow no mismatches in "core" region:
 
-    $ ./parse.py -b sorted.bam -f ref.fas -o counts.tsv
+    $ ./parse_bam.py -b sorted.bam -f ref.fas -o counts.tsv
 
 Allow two mismatches in the core region
 
-    $ ./parse.py -b sorted.bam -f ref.fas -g 9 -m 2 -t 4 -v -o counts.tsv
+    $ ./parse_bam.py -b sorted.bam -f ref.fas -g 9 -m 2 -t 4 -v -o counts.tsv
 
 ### Options
 
