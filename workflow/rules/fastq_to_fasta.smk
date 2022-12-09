@@ -23,6 +23,8 @@ rule fastq_to_fasta:
     params:
         extra = extra
     shell:
-        "seqtk seq -a {input.fqgz} {params.extra} > {output.fas}"
+        """
+        seqtk seq -a {input.fqgz} {params.extra} > {output.fas}
+        """
 
 

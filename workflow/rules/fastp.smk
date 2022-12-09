@@ -18,9 +18,9 @@ rule fastp:
     output:
         read1 = FASTQDIR/"{sample}_R1.fq.gz",
         read2 = FASTQDIR/"{sample}_R2.fq.gz",
-        html = LOGDIR/"fastp/{sample}.fastp.html",
+        html = LOGDIR/"fastp/{sample}.fastp.html"
     log:
-        stderr = str(LOGDIR/"fastp/{sample}.fastp.log"),
+        stderr = str(LOGDIR/"fastp/{sample}.fastp.log")
     shadow:
         "shallow"
     conda:

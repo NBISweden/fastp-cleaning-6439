@@ -2,13 +2,13 @@ bwa_index_config = config["bwa_index"]
 
 rule bwa_index:
     input:
-        INPUTDIR/"ref.fas",
+        INPUTDIR/"ref.fas"
     output:
-        idx=multiext("input/ref.fas", ".amb", ".ann", ".bwt", ".pac", ".sa"),
+        idx=multiext("input/ref.fas", ".amb", ".ann", ".bwt", ".pac", ".sa")
     log:
-        "logs/bwa_index/ref.log",
+        "logs/bwa_index/ref.log"
     params:
-        algorithm="bwtsw",
+        algorithm="bwtsw"
     conda:
         "../envs/fastp-cleaning.yaml"
     threads:
