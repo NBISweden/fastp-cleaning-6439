@@ -1,3 +1,5 @@
+bwa_index_config = config["bwa_index"]
+
 rule bwa_index:
     input:
         INPUTDIR/"ref.fas",
@@ -9,5 +11,7 @@ rule bwa_index:
         algorithm="bwtsw",
     conda:
         "../envs/fastp-cleaning.yaml"
+    threads:
+        cluster_config["bwa_index"]["n"] if "bwa_index" in cluster_config else bwa_index_config["n"]
     wrapper:
         "v1.20.0/bio/bwa/index"

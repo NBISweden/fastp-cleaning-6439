@@ -1,12 +1,12 @@
 citations.add(publications["fastp"])
 
 trimmed_qc = expand(str(FASTQDIR/"{sample}_{readpair}.fq.gz"),
-        sample = SAMPLES,
-        readpair = ["R1", "R2"])
+    sample = SAMPLES,
+    readpair = ["R1", "R2"])
 all_outputs.extend(trimmed_qc)
 
 fastp_config = config["fastp"]
-if config["fastp_dedup"]:
+if config["run_fastp_dedup"]:
     extra = fastp_config["extra"] + " --length_required " + str(fastp_config["length_required"]) + " --dedup --dup_calc_accuracy "+str(fastp_config["dup_calc_accuracy"])
 else:
     extra = fastp_config["extra"] + " --length_required " + str(fastp_config["length_required"])

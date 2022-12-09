@@ -5,39 +5,46 @@ __default__:
     account: "snic1234-56-789"
     partition: "core"
     extra: ""
-    time: "01:00:00"
+    time: "00:30:00"
     n: 4
     stderr: "output/logs/slurm/slurm-{rule}-{wildcards}.stderr"
     stdout: "output/logs/slurm/slurm-{rule}-{wildcards}.stdout"
     jobname: "[{rule}]: {wildcards}"
 
-# fastp
+# Settings for rules
+
+# fastp/fastp_merge using fastp
 fastp:
     n: 4
     time: "00:30:00"
 
-# seqtk
-seqtk:
+# fastq_to_fasta using seqtk seq
+fastq_to_fasta:
     n: 1
     time: "00:10:00"
 
-# seqkit
-seqkit:
+# tab_to_fasta using seqkit tab2fx
+tab_to_fasta:
+    n: 1
+    time: "00:10:00"
+
+# bwa_index using bwa index
+bwa_index:
     n: 4
     time: "00:10:00"
 
-# bwa
-bwa:
+# bwa_mem using bwa mem
+bwa_mem:
     n: 4
     time: "00:30:00"
 
-# samtools
-samtools:
+# samtools_index using samtools index
+samtools_index:
     n: 4
     time: "00:10:00"
 
-# parse.py
-parse:
+# parse_bam using parse.py
+parse_bam:
     n: 4
     time: "00:10:00"
 

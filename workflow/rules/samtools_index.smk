@@ -1,6 +1,6 @@
 citations.add(publications["samtools"])
 
-if config["fastp_merge"]:
+if config["run_fastp_merge"]:
     readpairs = ["R1", "R2", "R12"]
 else:
     readpairs = ["R1", "R2"]
@@ -10,8 +10,8 @@ bai_files = expand(str(BAMDIR/"{sample}_{readpair}.bam.bai"),
     readpair = readpairs)
 all_outputs.extend(bai_files)
 
-samtools_config = config["samtools"]
-extra = samtools_config["extra"]
+samtools_index_config = config["samtools_index"]
+extra = samtools_index_config["extra"]
 
 rule samtools_index:
     input:
@@ -21,7 +21,7 @@ rule samtools_index:
     conda:
         "../envs/fastp-cleaning.yaml"
     threads:
-        cluster_config["samtools"]["n"] if "samtools" in cluster_config else samtools_config["n"]
+        cluster_config["samtools_index"]["n"] if "samtools_index" in cluster_config else samtools_index_config["n"]
     shell:
         """
         samtools index -@ {threads} {input}
