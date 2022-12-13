@@ -18,13 +18,15 @@ rule fastq_to_fasta:
         fqgz = FASTQDIR/"{sample}_{readpair}.fq.gz"
     output:
         fas = FASTADIR/"{sample}_{readpair}.fas"
+    log:
+        LOGDIR/"fastq_to_fasta/{sample}_{readpair}.log"
     conda:
         "../envs/fastp-cleaning.yaml"
     params:
         extra = extra
     shell:
         """
-        seqtk seq -a {input.fqgz} {params.extra} > {output.fas}
+        seqtk seq -a {input.fqgz} {params.extra} > {output.fas} 2> {log}
         """
 
 

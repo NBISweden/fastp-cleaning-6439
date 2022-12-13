@@ -8,6 +8,7 @@ configfile: "config/config.yaml"
 BAMDIR = Path(config["bamdir"])
 COUNTSDIR = Path(config["countsdir"])
 FASTADIR = Path(config["fastadir"])
+FASTPDIR = Path(config["fastpdir"])
 FASTQDIR = Path(config["fastqdir"])
 INPUTDIR = Path(config["inputdir"])
 LOGDIR = Path(config["logdir"])
@@ -17,12 +18,12 @@ all_outputs = []
 
 citations = {publications["snakemake"]}
 
-SAMPLES = set(glob_wildcards(INPUTDIR/config["input_fn_pattern"]).sample)
+SAMPLES = set(glob_wildcards(INPUTDIR/config["fn_pattern"]).sample)
 
 if len(SAMPLES) < 1:
     raise WorkflowError("Found no samples! Check input file pattern and path in config.yaml")
 else:
-    print(f"Found the following samples in inputdir using input filename pattern '{config['input_fn_pattern']}':\n{SAMPLES}")
+    print(f"Found the following samples in inputdir using input filename pattern '{config['fn_pattern']}':\n{SAMPLES}")
 
 report: "report/workflow.rst"
 

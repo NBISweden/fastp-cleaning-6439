@@ -19,6 +19,8 @@ rule bwa_mem:
         fqgz = FASTQDIR/"{sample}_{readpair}.fq.gz"
     output:
         bam = BAMDIR/"{sample}_{readpair}.bam"
+    log:
+         LOGDIR/"bwa_mem/{sample}_{readpair}.log"
     conda:
         "../envs/fastp-cleaning.yaml"
     threads:
@@ -26,5 +28,5 @@ rule bwa_mem:
     shell:
         """
         bwa mem -t {threads} {input.ref} {input.fqgz} | \
-              samtools sort -@{threads} -o {output.bam} -
+              samtools sort -@{threads} -o {output.bam} - &> {log}
         """

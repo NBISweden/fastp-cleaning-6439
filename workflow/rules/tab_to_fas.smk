@@ -10,12 +10,14 @@ rule tab_to_fasta:
         INPUTDIR/"list.tab"
     output:
         INPUTDIR/"ref.fas"
+    log:
+        LOGDIR/"tab_to_fasta/tab_to_fasta.log"
     conda:
         "../envs/fastp-cleaning.yaml"
     threads:
         cluster_config["tab_to_fasta"]["n"] if "tab_to_fasta" in cluster_config else tab_to_fasta_config["n"]
     shell:
         """
-        seqkit tab2fx --threads {threads} {input} > {output}
+        seqkit tab2fx --threads {threads} {input} > {output} 2> {log}
         """
 

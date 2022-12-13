@@ -23,8 +23,7 @@ rule parse_bam:
     output:
         tsv = COUNTSDIR/"{sample}_{readpair}.tsv"
     log:
-        stdout = str(LOGDIR/"parse/{sample}_{readpair}.stdout.log"),
-        stderr = str(LOGDIR/"parse/{sample}_{readpair}.stderr.log")
+        LOGDIR/"parse/{sample}_{readpair}.log"
     conda:
         "../envs/fastp-cleaning.yaml"
     threads:
@@ -39,6 +38,7 @@ rule parse_bam:
             -g {g} \
             -m {m} \
             -t {threads} \
-            -o {output.tsv}
+            -o {output.tsv} \
+            &> {log}
         """
 

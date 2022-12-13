@@ -13,17 +13,17 @@ else:
 
 rule fastp:
     input:
-        read1 = INPUTDIR/config["input_fn_pattern"].format(sample = "{sample}", readpair = "R1"),
-        read2 = INPUTDIR/config["input_fn_pattern"].format(sample = "{sample}", readpair = "R2")
+        read1 = INPUTDIR/config["fn_pattern"].format(sample = "{sample}", readpair = "R1"),
+        read2 = INPUTDIR/config["fn_pattern"].format(sample = "{sample}", readpair = "R2")
     output:
         read1 = FASTQDIR/"{sample}_R1.fq.gz",
         read2 = FASTQDIR/"{sample}_R2.fq.gz",
         merged = FASTQDIR/"{sample}_R12.fq.gz",
         unpaired1 = FASTQDIR/"{sample}_R1_unpaired.fq.gz",
         unpaired2 = FASTQDIR/"{sample}_R2_unpaired.fq.gz",
-        html = LOGDIR/"fastp/{sample}.fastp.html",
+        html = FASTPDIR/"{sample}.fastp.html",
     log:
-        stderr = str(LOGDIR/"fastp/{sample}.fastp.log")
+        LOGDIR/"fastp/{sample}.fastp.log"
     shadow:
         "shallow"
     conda:
@@ -46,6 +46,6 @@ rule fastp:
             --html {output.html} \
             --thread {threads} \
             {params.extra} \
-            2> {log.stderr}
+            &> {log}
         """
 

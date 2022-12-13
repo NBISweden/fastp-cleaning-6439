@@ -18,11 +18,13 @@ rule samtools_index:
         BAMDIR/"{sample}_{readpair}.bam"
     output:
         BAMDIR/"{sample}_{readpair}.bam.bai"
+    log:
+        LOGDIR/"samtools_index/{sample}_{readpair}.log"
     conda:
         "../envs/fastp-cleaning.yaml"
     threads:
         cluster_config["samtools_index"]["n"] if "samtools_index" in cluster_config else samtools_index_config["n"]
     shell:
         """
-        samtools index -@ {threads} {input}
+        samtools index -@ {threads} {input} &> {log}
         """

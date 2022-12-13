@@ -1,24 +1,22 @@
 # Run configuration
-inputdir: "input"
-input_fn_pattern: "{sample}_{readpair}_001.fastq.gz"
-input_fqgz_pattern: "{sample}_{readpair}.fq.gz"
-output_fas_pattern: "{sample}_{readpair}.fas"
-input_tab_pattern: "list.tab"
-outputdir: "output"
-fastqdir: "output/fastq"
-fastadir: "output/fasta"
-bamdir: "output/bam"
-countsdir: "output/counts"
-logdir: "output/logs"
-report: "output/workflow-report-"
+inputdir:   "input"
+fn_pattern: "{sample}_{readpair}_001.fastq.gz"
+outputdir:  "output"
+fastadir:   "output/fasta"
+fastpdir:   "output/fastp"
+fastqdir:   "output/fastq"
+bamdir:     "output/bam"
+countsdir:  "output/counts"
+logdir:     "output/logs"
+report:     "output/workflow-report-"
 
 # Workflow steps
-run_fastp: True
-run_fastp_dedup: True
-run_fastp_merge: True
+run_fastp:          True
+run_fastp_dedup:    True
+run_fastp_merge:    True
 run_fastq_to_fasta: True
-run_bwa_mem: True
-run_parse_bam: True
+run_bwa_mem:        True
+run_parse_bam:      True
 
 # Extra options to tools
 # fastp
