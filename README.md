@@ -1,6 +1,6 @@
 # fastp-cleaning-6439
 
-- Last modified: fre dec 09, 2022  06:27
+- Last modified: tis dec 13, 2022  12:36
 - Sign: nylander
 
 ## Description
@@ -73,7 +73,7 @@ workflow/scripts directory for details. Workflow defaults for the script
 2. Clone the repository: `git clone
 https://github.com/nylander/fastp-cleaning-6439.git`
 3. Put input data (gzip-compressed paired-end illumina fastq files) in folder
-`fastp-cleaning/input`
+`fastp-cleaning-6439/input`
 4. Put the file `list.tab` in `fastp-cleaning-6439/input`
 5. Review the `fastp-cleaning-6439/config/config.yaml` and make sure input file name
 endings (currently `_R1_001.fastq.gz`), matches your input files, select the
@@ -113,6 +113,7 @@ start the run with the [Makefile](Makefile).
 
 The pipeline is an extension of
 [fastp-cleaning](https://github.com/nylander/fastp-cleaning),
+heavily influenced by [stag-mwc](https://github.com/ctmrbio/stag-mwc).
 
 ## License and copyright
 
