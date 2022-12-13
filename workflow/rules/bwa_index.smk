@@ -4,7 +4,7 @@ rule bwa_index:
     input:
         INPUTDIR/"ref.fas"
     output:
-        idx=multiext("input/ref.fas", ".amb", ".ann", ".bwt", ".pac", ".sa")
+        idx = multiext("input/ref.fas", ".amb", ".ann", ".bwt", ".pac", ".sa")
     log:
         LOGDIR/"bwa_index/bwa_index.log"
     params:
