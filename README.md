@@ -1,6 +1,6 @@
 # fastp-cleaning-6439
 
-- Last modified: tis dec 13, 2022  12:54
+- Last modified: tis dec 13, 2022  01:02
 - Sign: nylander
 
 ## Description
@@ -115,7 +115,7 @@ The pipeline is an extension of
 [fastp-cleaning](https://github.com/nylander/fastp-cleaning), heavily
 influenced by [stag-mwc](https://github.com/ctmrbio/stag-mwc).  Thanks to
 [Marcel Martin](https://github.com/marcelm) and [John
-Sundh](https://github.com/johnne) for important feedback on the bam parcing
+Sundh](https://github.com/johnne) for important feedback on the bam parsing
 (MM) and the workflow (JS).
 
 
