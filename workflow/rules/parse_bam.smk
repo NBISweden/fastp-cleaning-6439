@@ -32,7 +32,7 @@ rule parse_bam:
         extra = extra
     shell:
         """
-        python3 workflow/scripts/parse_bam.py \
+        python workflow/scripts/parse_bam.py \
             -b {input.bam} \
             -f {input.fas} \
             -g {g} \
