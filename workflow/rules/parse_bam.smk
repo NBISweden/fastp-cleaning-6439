@@ -10,11 +10,6 @@ tsv_files = expand(str(COUNTSDIR/"{sample}_{readpair}.tsv"),
     readpair = readpairs)
 all_outputs.extend(tsv_files)
 
-parse_bam_config = config["parse_bam"]
-extra = parse_bam_config["extra"]
-g = parse_bam_config["g"]
-m = parse_bam_config["m"]
-
 rule parse_bam:
     input:
         fas = INPUTDIR/"ref.fas",
@@ -27,18 +22,21 @@ rule parse_bam:
     conda:
         "../envs/fastp-cleaning.yaml"
     threads:
-        cluster_config["parse_bam"]["n"] if "parse_bam" in cluster_config else parse_bam_config["n"]
+        cluster_config["parse_bam"]["n"] if "parse_bam" in cluster_config else config["parse_bam"]["n"]
     params:
-        extra = extra
+        g = config["parse_bam"]["g"],
+        m = config["parse_bam"]["m"],
+        extra = config["parse_bam"]["extra"]
     shell:
         """
         python workflow/scripts/parse_bam.py \
             -b {input.bam} \
             -f {input.fas} \
-            -g {g} \
-            -m {m} \
+            -g {params.g} \
+            -m {params.m} \
             -t {threads} \
             -o {output.tsv} \
+            {params.extra} \
             &> {log}
         """
 
