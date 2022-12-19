@@ -1,6 +1,6 @@
-# input data folder for fastp-cleaning
+# Input data folder for fastp-cleaning
 
-- Last modified: fre okt 29, 2021  04:27
+- Last modified: mån dec 19, 2022  04:29
 - Sign: nylander
 
 ## Description
