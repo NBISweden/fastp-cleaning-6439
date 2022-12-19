@@ -1,19 +1,19 @@
 # fastp-cleaning-6439
 
-- Last modified: tis dec 13, 2022  01:02
+- Last modified: mån dec 19, 2022  04:28
 - Sign: nylander
 
 ## Description
 
 Workflow using snakemake for filtering fastq files using
 [fastp](https://github.com/OpenGene/fastp), followed by mapping with [bwa
-mem](https://github.com/lh3/bwa) and counting of occurences of reference
+mem](https://github.com/lh3/bwa) and counting of occurrences of reference
 sequences.
 
 ### Input
 
 1. gzipped paired-end Illumina `.fastq.gz` files.
-2. `list.tab` fiile with reference sequences.
+2. `list.tab` file with reference sequences.
 
 ### Output
 
@@ -38,7 +38,7 @@ sequences.
    [config.yaml](config/config.yaml) file)
 6. Merging of paired-end read pairs (optional, by editing the
    [config.yaml](config/config.yaml) file)
-7. Convert the filtered fastq filies to fasta (optional, by editing the
+7. Convert the filtered fastq files to fasta (optional, by editing the
    [config.yaml](config/config.yaml) file)
 
 Please see the [fastp-manual](https://github.com/OpenGene/fastp/wiki) for
